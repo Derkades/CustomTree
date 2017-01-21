@@ -3,7 +3,9 @@ package com.robinmc.customtree;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -34,11 +36,13 @@ public class Main extends JavaPlugin implements Listener {
 	private static Plugin plugin;
 	
 	private static final List<String> COOLDOWN = new ArrayList<String>();
+	public static final Map<String, String> SELECTED_TYPE = new HashMap<>();
 
 	@Override
 	public void onEnable() {
 		plugin = this;
 		getServer().getPluginManager().registerEvents(this, this);
+		getCommand("customtree").setExecutor(new TreeCommand());
 	}
 
 	public static Plugin getPlugin() {
@@ -59,15 +63,29 @@ public class Main extends JavaPlugin implements Listener {
 		
 		COOLDOWN.add(player.getName());
 		
+
+		
 		PlayerInventory inventory = player.getInventory();
 		if (inventory.getItemInHand().getType() == Material.CARROT_STICK) {
+			
+			if (!SELECTED_TYPE.containsKey(player.getName())){
+				player.sendMessage(ChatColor.RED + "No tree type has been selected.");
+				new BukkitRunnable(){
+					public void run(){
+						COOLDOWN.remove(player.getName());
+					}
+				}.runTaskLater(this, 3);
+			}
+			
+			String type = SELECTED_TYPE.get(player.getName());
+			
 			Block block = event.getClickedBlock();
 			Location loc = block.getLocation();
 			double x = loc.getX();
 			double y = loc.getY();
 			y++;
 			double z = loc.getZ();
-			Tree tree = Tree.getRandomTree("A");
+			Tree tree = Tree.getRandomTree(type);
 			File file = tree.getFile();
 			try {
 				pasteSchematic(player.getWorld(), file, new Vector(x, y, z));
