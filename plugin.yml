@@ -5,3 +5,10 @@ author: RobinMC
 description: Generates all kinds of custom trees
 depend: [WorldEdit]
 website: http://robinmc.com/
+
+commands:
+  customtree:
+    usage: |
+      /customtree list - Displays all possible tree types
+      /customtree <type> - Set tree type
+    description: Main command for the CustomTree plugin.  
