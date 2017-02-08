@@ -8,35 +8,36 @@ import com.robinmc.customtree.utils.EnumUtils;
 
 public enum Tree {
 	
-	A_1,
-	A_2,
-	A_3,
-	A_4,
-	A_5,
-	A_6,
+	A_01,
+	A_02,
+	A_03,
+	A_04,
+	A_05,
+	A_06,
 	
-	B_1,
-	B_2,
-	B_3,
-	B_4,
-	B_5,
-	B_6,
-	B_7,
-	B_8,
+	B_01,
+	B_02,
+	B_03,
+	B_04,
+	B_05,
+	B_06,
+	B_07,
+	B_08,
 	
-	SPRUCE_1_1,
-	SPRUCE_1_2,
-	SPRUCE_1_3,
-	SPRUCE_1_4,
-	SPRUCE_1_5,
-	SPRUCE_1_6,
-	SPRUCE_1_7,
-	SPRUCE_1_8,
+	SPRUCE_1_01,
+	SPRUCE_1_02,
+	SPRUCE_1_03,
+	SPRUCE_1_04,
+	SPRUCE_1_05,
+	SPRUCE_1_06,
+	SPRUCE_1_07,
+	SPRUCE_1_08,
 	
 	;
 	
 	public String getType(){
-		return this.toString().substring(0, 1);
+		String full = this.toString();
+		return full.substring(0, full.length() - 3);
 	}
 	
 	public File getFile(){
