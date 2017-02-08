@@ -24,6 +24,15 @@ public enum Tree {
 	B_7,
 	B_8,
 	
+	SPRUCE_1_1,
+	SPRUCE_1_2,
+	SPRUCE_1_3,
+	SPRUCE_1_4,
+	SPRUCE_1_5,
+	SPRUCE_1_6,
+	SPRUCE_1_7,
+	SPRUCE_1_8,
+	
 	;
 	
 	public String getType(){
