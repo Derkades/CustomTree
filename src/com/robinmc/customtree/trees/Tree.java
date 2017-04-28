@@ -36,7 +36,7 @@ public abstract class Tree {
 				
 				blockLocation.getBlock().setType(treeBlock.getMaterial());
 			}
-		}.runTaskTimer(Main.getPlugin(), 0, 5);
+		}.runTaskTimer(Main.getPlugin(), 0, 2);
 	}
 	
 	public static Tree fromString(String name){
