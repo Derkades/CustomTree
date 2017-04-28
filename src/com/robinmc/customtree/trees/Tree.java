@@ -18,14 +18,15 @@ public abstract class Tree {
 		new BukkitRunnable(){
 			
 			int counter = 0;
+			List<TreeBlock> treeBlocks = Tree.this.getTreeBlocks();
 			
 			public void run(){
-				if (counter > Tree.this.getTreeBlocks().size()){
+				if (counter > treeBlocks.size()){
 					this.cancel();
 					return;
 				}
 				
-				TreeBlock treeBlock = Tree.this.getTreeBlocks().get(counter);
+				TreeBlock treeBlock = treeBlocks.get(counter);
 				location.add(treeBlock.getRelativeX(), treeBlock.getRelativeY(), treeBlock.getRelativeZ())
 					.getBlock()
 					.setType(treeBlock.getMaterial());
