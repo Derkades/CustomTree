@@ -3,7 +3,6 @@ main: com.robinmc.customtree.Main
 version: 1.0.0
 author: RobinMC
 description: Generates all kinds of custom trees
-depend: [WorldEdit]
 website: http://robinmc.com/
 
 commands:
