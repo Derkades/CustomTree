@@ -19,6 +19,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import com.robinmc.customtree.trees.TestTree;
 import com.robinmc.customtree.trees.Tree;
 
 public class Main extends JavaPlugin implements Listener {
@@ -29,7 +30,7 @@ public class Main extends JavaPlugin implements Listener {
 	public static final Map<String, Tree> SELECTED_TREE = new HashMap<>();
 	
 	public static final Tree[] TREE_LIST = new Tree[]{
-			
+			new TestTree(),
 	};
 
 	@Override
