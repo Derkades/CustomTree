@@ -68,6 +68,7 @@ public class Main extends JavaPlugin implements Listener {
 						COOLDOWN.remove(player.getName());
 					}
 				}.runTaskLater(this, 3);
+				return;
 			}
 			
 			Tree tree = SELECTED_TREE.get(player.getName());
@@ -75,7 +76,6 @@ public class Main extends JavaPlugin implements Listener {
 			Location location = event.getClickedBlock().getLocation().add(0, 1, 0);
 			
 			tree.spawn(location);
-			
 		}
 		
 		new BukkitRunnable(){
