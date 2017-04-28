@@ -19,15 +19,7 @@ public class FancyOak extends Tree {
 
 	@Override
 	public List<TreeBlock> getTreeBlocks() {
-		List<TreeBlock> list = new ArrayList<>();
-		
-		list.addAll(getStemBlocks());
-		
-		return list;
-	}
-	
-	private List<TreeBlock> getStemBlocks(){
-		List<TreeBlock> list = new ArrayList<>();
+List<TreeBlock> list = new ArrayList<>();
 		
 		int stemHeight = new Random().nextInt(3) + 4; //Stem height 4-6 (inclusive)
 		
@@ -100,6 +92,13 @@ public class FancyOak extends Tree {
 		}
 		
 		list.add(new TreeBlock(lastX, 0, lastZ, Material.LOG));
+		
+		list.addAll(Main.getLeaves(0, stemHeight, 0, Material.LEAVES));
+		
+		list.add(new TreeBlock(0, stemHeight, 0, Material.LOG));
+		list.add(new TreeBlock(0, stemHeight - 1, 0, Material.LOG));
+		list.add(new TreeBlock(0, stemHeight + 1, 0, Material.LOG));
+	
 		
 		return list;
 	}

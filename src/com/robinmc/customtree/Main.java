@@ -102,5 +102,25 @@ public class Main extends JavaPlugin implements Listener {
 			return BlockFace.WEST;
 		}
 	}
+	
+	public static List<TreeBlock> getLeaves(int startingX, int startingY, int startingZ, Material type){
+		List<TreeBlock> list = new ArrayList<>();
+		
+		for (int x = -2; x < 3; x++){
+			for (int y = -1; y < 1; y++){
+				for (int z = -2; z < 3; z++){
+					list.add(new TreeBlock(startingX + x, startingY + y, startingZ + z, type));
+				}
+			}
+		}
+		
+		for (int x = -1; x < 2; x++){
+			for (int z = -1; z < 2; z++){
+				list.add(new TreeBlock(startingX + x, startingY + 1, startingZ + z, type));
+			}
+		}
+		
+		return list;		
+	}
 
 }
