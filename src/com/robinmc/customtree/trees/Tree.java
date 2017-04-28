@@ -27,9 +27,13 @@ public abstract class Tree {
 				}
 				
 				TreeBlock treeBlock = treeBlocks.get(counter);
-				location.add(treeBlock.getRelativeX(), treeBlock.getRelativeY(), treeBlock.getRelativeZ())
-					.getBlock()
-					.setType(treeBlock.getMaterial());
+				
+				Location blockLocation = new Location(location.getWorld(), 
+						location.getX() + treeBlock.getRelativeX(), 
+						location.getY() + treeBlock.getRelativeY(), 
+						location.getZ() + treeBlock.getRelativeZ());
+				
+				blockLocation.getBlock().setType(treeBlock.getMaterial());
 				
 				counter++;
 			}
