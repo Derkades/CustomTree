@@ -15,8 +15,10 @@ public abstract class Tree {
 	public abstract List<TreeBlock> getTreeBlocks();
 	
 	public void spawn(Location location){
-		int counter = 0;
 		new BukkitRunnable(){
+			
+			int counter = 0;
+			
 			public void run(){
 				if (counter > Tree.this.getTreeBlocks().size()){
 					this.cancel();
@@ -27,6 +29,8 @@ public abstract class Tree {
 				location.add(treeBlock.getRelativeX(), treeBlock.getRelativeY(), treeBlock.getRelativeZ())
 					.getBlock()
 					.setType(treeBlock.getMaterial());
+				
+				counter++;
 			}
 		}.runTaskTimer(Main.getPlugin(), 0, 5);
 	}
