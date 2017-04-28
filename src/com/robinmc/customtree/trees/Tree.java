@@ -17,16 +17,17 @@ public abstract class Tree {
 	public void spawn(Location location){
 		new BukkitRunnable(){
 			
-			int counter = 0;
 			List<TreeBlock> treeBlocks = Tree.this.getTreeBlocks();
 			
 			public void run(){
-				if (counter > treeBlocks.size()){
+				if (treeBlocks.size() == 0){
 					this.cancel();
 					return;
 				}
 				
-				TreeBlock treeBlock = treeBlocks.get(counter);
+				//Get first and remove first, so next run there will be a different first
+				TreeBlock treeBlock = treeBlocks.get(0);
+				treeBlocks.remove(0);
 				
 				Location blockLocation = new Location(location.getWorld(), 
 						location.getX() + treeBlock.getRelativeX(), 
@@ -34,8 +35,6 @@ public abstract class Tree {
 						location.getZ() + treeBlock.getRelativeZ());
 				
 				blockLocation.getBlock().setType(treeBlock.getMaterial());
-				
-				counter++;
 			}
 		}.runTaskTimer(Main.getPlugin(), 0, 5);
 	}
